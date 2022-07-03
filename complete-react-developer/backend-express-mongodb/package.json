@@ -6,7 +6,7 @@
     "start": "node dist/src/app.js",
     "dev": "nodemon src/app.ts",
     "clean": "rimraf dist/",
-    "build": "npm run clean && tsc && npm run copy-files",
+    "build": "npm run clean && tsc",
     "copy-files": "copyfiles -u 1 src/**/*.html src/**/*.css src/**/*.json dist/src"
   },
   "license": "MIT",
