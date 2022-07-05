@@ -9,7 +9,7 @@ import { TwitterModule } from './twitter/twitter.module';
     TwitterModule,
     // Local MongoDb database
     // Change the port to 127.0.0.1:2717 to connect to Docker
-    MongooseModule.forRoot('mongodb://127.0.0.1:2717/twitter'),
+    MongooseModule.forRoot('mongodb://127.0.0.1:27017/twitter'),
   ],
   controllers: [TwitterController],
   providers: [TwitterService],

@@ -1,5 +1,7 @@
 import { useEffect, useState, createContext, useContext } from "react";
 
+const port = "8080";
+
 interface ContextProps {
   data: any;
   loading: boolean;
@@ -18,7 +20,7 @@ export const useTwitter = () => useContext(TwitterContext);
 const TwitterContextProvider = (props: any): any => {
   useEffect(() => {
     const getTweets = () => {
-      const API = "http://localhost:3000/tweets";
+      const API = `http://localhost:${port}/tweets`;
 
       fetch(API)
         .then((response) => {
@@ -58,7 +60,7 @@ const TwitterContextProvider = (props: any): any => {
         img: "",
       });
 
-      fetch("http://localhost:3000/tweets", {
+      fetch(`http://localhost:${port}/tweets`, {
         method: "POST",
         headers: myHeaders,
         body: raw,
@@ -76,7 +78,7 @@ const TwitterContextProvider = (props: any): any => {
         img: "",
       });
 
-      fetch("http://localhost:3000/tweets", {
+      fetch(`http://localhost:${port}/tweets`, {
         method: "POST",
         headers: myHeaders,
         body: raw,
@@ -92,7 +94,7 @@ const TwitterContextProvider = (props: any): any => {
     console.log("Deleted", tweetId);
     let urlencoded = new URLSearchParams();
 
-    fetch(`http://localhost:3000/tweets/${tweetId}`, {
+    fetch(`http://localhost:${port}/tweets/${tweetId}`, {
       method: "DELETE",
       body: urlencoded,
       redirect: "follow",
